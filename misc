@@ -10,6 +10,8 @@ original font:
     --ff-primary: 'Source Sans Pro', sans-serif;
   --ff-secondary: 'Source Code Pro', monospace;
 
+        <img src="img/python_icon.png" alt="" class="portfolio__img">
+
 
 
 

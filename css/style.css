@@ -42,7 +42,10 @@ html {
 }
 
 body {
-  background: var(--clr-dark);
+  /*background: var(--clr-dark);*/
+  background-image: url(background-image-code.png);
+  background-blend-mode: darken;
+  
   color: var(--clr-dark);
   margin: 0;
   font-family: var(--ff-primary);
@@ -57,6 +60,10 @@ section {
 img {
   display: block;
   max-width: 100%;
+}
+
+a:link{
+  text-decoration: none;
 }
 
 strong {font-weight: var(--fw-bold)}
@@ -96,6 +103,7 @@ h3 {font-size: var(--fs-h3)}
   padding: .25em;
   font-family: var(--ff-secondary);
   margin-bottom: 1em;
+  color: var(--clr-light);
 }
 
 .section__subtitle--projects {
@@ -252,7 +260,7 @@ header {
 }
 
 .about-me {
-  max-width: 1000px;
+  max-width: 800px;
   margin: 0 auto;
 }
 
@@ -260,14 +268,23 @@ header {
   box-shadow: var(--bs);
 }
 
+.section__title--about{
+  color: var(--clr-light);
+  padding-bottom: 0.25em;
+}
+
+.about-me__body{
+  color: var(--clr-light);
+}
+
 @media (min-width: 600px) {
   .about-me {
       display: grid;
       grid-template-columns: 1fr 200px;
       grid-template-areas: 
-       "title img"
-       "subtitle img"
-       "text img";
+       "title"
+       "subtitle"
+       "text";
       grid-column-gap: 2em;
       padding-bottom: 500px;
   }
@@ -277,6 +294,7 @@ header {
   }
   
   .section__subtitle--about {
+      grid-area: subtitle;
       grid-column: 1 / -1;
       grid-row: 2;
       position: relative;
@@ -287,8 +305,9 @@ header {
   }
 
   .about-me__body {
-    color: var(--clr-light)
-}
+    grid-area: text;
+    color: var(--clr-light);
+  }
   
   .about-me__img {
       grid-area: img;
@@ -299,7 +318,7 @@ header {
 
 
 .projects {
-  background-color: var(--clr-dark);
+  background-image: url(background-image-code.png);
   color: var(--clr-light);
   text-align: center;
 }
@@ -307,12 +326,19 @@ header {
 .portfolio {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-
 }
 
 .portfolio__item {
-  background: var(--clr-accent);
   overflow: hidden;
+}
+
+.portfolio__item:hover {
+  transform: scale(1);
+  background-color: var(--clr-accent);
+}
+
+.portfolio__item:hover .project-title:after{
+  visibility: hidden;
 }
 
 .portfolio__img {
@@ -326,10 +352,10 @@ header {
   z-index: 2;
 }
 
-.portfolio__img:hover, 
-.portfolio__item:focus .portfolio__img{
-  transform: scale(1.2);
-  opacity: .5 ;
+.project-title{
+  color: var(--clr-light);
+  padding: 80px 10px 80px 10px;
+  visibility: visible;
 }
 
 /* footer */
